@@ -54,7 +54,7 @@ namespace my_contacts_back.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutContact(string id, Contact contact)
         {
-            if (id != contact.PersonalId)
+            if (id != contact.personalId)
             {
                 return BadRequest();
             }
@@ -95,7 +95,7 @@ namespace my_contacts_back.Controllers
             }
             catch (DbUpdateException)
             {
-                if (ContactExists(contact.PersonalId))
+                if (ContactExists(contact.personalId))
                 {
                     return Conflict();
                 }
@@ -105,7 +105,7 @@ namespace my_contacts_back.Controllers
                 }
             }
 
-            return CreatedAtAction("GetContact", new { id = contact.PersonalId }, contact);
+            return CreatedAtAction("GetContact", new { id = contact.personalId }, contact);
         }
 
         // DELETE: api/Contacts/5
@@ -130,7 +130,7 @@ namespace my_contacts_back.Controllers
 
         private bool ContactExists(string id)
         {
-            return (_context.Contacts?.Any(e => e.PersonalId == id)).GetValueOrDefault();
+            return (_context.Contacts?.Any(e => e.personalId == id)).GetValueOrDefault();
         }
     }
 }

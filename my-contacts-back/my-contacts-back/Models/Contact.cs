@@ -5,10 +5,10 @@ namespace my_contacts_back.Models
     public class Contact
     {
         [Key]
-        public string PersonalId { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
+        public string personalId { get; set; }
+        public string name { get; set; }
+        public string surname { get; set; }
+        public string email { get; set; }
+        public string phoneNumber { get; set; }
     }
 }

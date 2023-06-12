@@ -9,7 +9,7 @@ export const Header: React.FC = () => {
 
   React.useEffect(() => {
     setActive(location.pathname === '/create' ? 1 : 0);
-  }, []);
+  }, [location.pathname]);
 
   return (
     <div className={styles.container}>

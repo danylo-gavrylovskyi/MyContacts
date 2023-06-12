@@ -68,3 +68,18 @@ input {
     border-bottom: 1.5px solid #000000;
   }
 }
+
+.link {
+  display: flex;
+  text-decoration: none;
+  width: 90%;
+  align-items: center;
+  justify-content: center;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+}
