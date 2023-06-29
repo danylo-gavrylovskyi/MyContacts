@@ -1,4 +1,4 @@
-import React, { SetStateAction } from 'react';
+import React from 'react';
 import axios from 'axios';
 
 import { ContactType } from './Create';
@@ -6,11 +6,7 @@ import { Contact } from '../components/Contact';
 
 import styles from '../scss/Home.module.scss';
 
-interface HomePropsType {
-  setId: (value: SetStateAction<number>) => void;
-}
-
-export const Home: React.FC<HomePropsType> = ({ setId }) => {
+export const Home: React.FC = () => {
   const [needRerender, setRerender] = React.useState(true);
   const [contacts, setContacts] = React.useState([]);
   React.useEffect(() => {
@@ -18,7 +14,6 @@ export const Home: React.FC<HomePropsType> = ({ setId }) => {
       try {
         const { data } = await axios.get('https://localhost:7120/api/Contacts');
         setContacts(data);
-        setId(data.length + 1);
       } catch (error) {
         console.log('Error:', error);
       }

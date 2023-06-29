@@ -1,13 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
-
+import { v4 as uuidv4 } from 'uuid';
 import styles from '../scss/Create.module.scss';
-
-type CreatePropsType = {
-  id: number;
-  setId: React.Dispatch<React.SetStateAction<number>>;
-};
 
 export interface ContactType {
   personalId: string;
@@ -17,7 +12,7 @@ export interface ContactType {
   phoneNumber: string;
 }
 
-export const Create: React.FC<CreatePropsType> = ({ id, setId }) => {
+export const Create: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const isEditing = location.state ? true : false;
@@ -37,17 +32,17 @@ export const Create: React.FC<CreatePropsType> = ({ id, setId }) => {
 
   const onSubmitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    formResponse.personalId = isEditing ? String(idForEditingMode) : String(id);
+    formResponse.personalId = isEditing ? idForEditingMode : uuidv4();
     formResponse.name = name;
     formResponse.surname = surname;
     formResponse.email = email;
     formResponse.phoneNumber = phone;
     try {
       if (isEditing) {
+        console.log(idForEditingMode);
         await axios.put(`https://localhost:7120/api/Contacts/${idForEditingMode}`, formResponse);
       } else {
         await axios.post('https://localhost:7120/api/Contacts', formResponse);
-        setId((prev) => prev++);
       }
     } catch (error) {
       console.log(isEditing ? `Error in put request ${error}` : `Error in post request: ${error}`);

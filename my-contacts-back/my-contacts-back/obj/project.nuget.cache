@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+3q9kTwesnbS3dkgG4jzaNb1hsrfAlUoetrf0YrdkY8ErA4TrAX9vjd/Zk8daUXbQOsMh7g7LduIp4XwkJbYCg==",
+  "dgSpecHash": "M5jghQkdUfvfcoK6ufZSzouolE2iBRRd96r2rOBo8bDJ+LnfwaVT/42LiirE79SVh6T1B1vcGZ4zCWfLr0MAMA==",
   "success": true,
-  "projectFilePath": "D:\\FullStack\\MyContacts\\my-contacts-back\\my-contacts-back\\my-contacts-back.csproj",
+  "projectFilePath": "D:\\FullStack\\.NET+TS\\MyContacts\\my-contacts-back\\my-contacts-back\\my-contacts-back.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danya\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\danya\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

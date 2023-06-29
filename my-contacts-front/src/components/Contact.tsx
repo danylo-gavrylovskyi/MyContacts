@@ -21,7 +21,7 @@ export const Contact: React.FC<ContactPropsType> = ({
 }) => {
   const deleteBtnHandler = async (id: string) => {
     try {
-      await axios.delete(`https://localhost:7120/api/Contacts/${Number(id)}`);
+      await axios.delete(`https://localhost:7120/api/Contacts/${id}`);
       setRerender(!needRerender);
     } catch (error) {
       console.log('Error when deleting this contact ', error);
@@ -38,9 +38,7 @@ export const Contact: React.FC<ContactPropsType> = ({
         <p>{phoneNumber}</p>
       </div>
       <div className={styles.buttons}>
-        <Link
-          to="/create"
-          state={{ isEditing: true, name, surname, email, phoneNumber, personalId }}>
+        <Link to="/create" state={{ name, surname, email, phoneNumber, personalId }}>
           <button className={styles.editBtn}>Edit</button>
         </Link>
         <button onClick={() => deleteBtnHandler(personalId)} className={styles.delBtn}>
