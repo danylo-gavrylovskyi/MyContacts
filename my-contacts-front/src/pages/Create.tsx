@@ -62,30 +62,34 @@ export const Create: React.FC = () => {
         <form onSubmit={onSubmitHandler} action="https://localhost:7120/Contacts" method="post">
           <p>Name</p>
           <input
+            data-testid="nameInput"
             type="text"
             onChange={(event) => setName(event.target.value)}
             required
             placeholder={isEditing ? location.state.name : 'enter name'}></input>
           <p>Surname</p>
           <input
+            data-testid="surnameInput"
             type="text"
             onChange={(event) => setSurname(event.target.value)}
             required
             placeholder={isEditing ? location.state.surname : 'enter surname'}></input>
           <p>E-mail</p>
           <input
+            data-testid="emailInput"
             type="email"
             onChange={(event) => setEmail(event.target.value)}
             required
             placeholder={isEditing ? location.state.email : 'enter e-mail'}></input>
           <p>Phone number</p>
           <input
+            data-testid="phoneInput"
             type="tel"
             onChange={(event) => setPhone(event.target.value)}
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             placeholder={isEditing ? location.state.phoneNumber : 'format: xxx-xxx-xxxx'}
             required></input>
-          <button>{isEditing ? 'Edit contact' : 'Add contact'}</button>
+          <button data-testid="addContact">{isEditing ? 'Edit contact' : 'Add contact'}</button>
         </form>
       </main>
     </div>
